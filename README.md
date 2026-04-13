@@ -2,18 +2,50 @@
 
 ## Descripción
 
-Este proyecto es una aplicación monolítica desarrollada con Laravel 11 que implementa un sistema completo de gestión de usuarios.
+ste proyecto es una aplicación monolítica desarrollada con Laravel 11 que implementa un sistema completo de gestión de inventario y usuarios.
 
 Incluye:
 
 - Interfaz con Blade (renderizado en servidor)
-- API REST con autenticación basada en tokens
-- Arquitectura limpia (Service + Repository)
-- Paginación
-- Logging
-- Base de datos en Docker (MySQL)
+- API REST con autenticación basada en tokens (Sanctum)
+- Arquitectura limpia (Service + Repository Pattern)
+- Paginación optimizada
+- Logging estructurado
+- Base de datos en Docker (MySQL 8)
+- Manejo de inventario con reglas de negocio (lotes y vencimiento)
 
-El objetivo es demostrar buenas prácticas, arquitectura sólida y capacidad de desarrollo en pruebas técnicas.
+El objetivo es demostrar buenas prácticas de desarrollo backend, arquitectura escalable y preparación para entornos productivos.
+
+---
+
+## ⚙️ Funcionalidades
+
+### 👤 Usuarios
+- CRUD completo
+- Registro y login con token
+- Hash seguro de contraseñas
+- Autenticación con Sanctum
+- Soft Deletes
+
+### 📦 Inventario
+- Gestión de productos por lote
+- Estados de negocio:
+  - `available`
+  - `reserved`
+  - `disposed`
+- Validación de vencimiento (18 meses desde fabricación)
+- Observaciones por producto
+- Paginación
+- Filtros por estado
+
+### 🧱 Arquitectura
+- Controller → Service → Repository → Model
+- Separación clara de responsabilidades
+- Código mantenible y escalable
+
+### 📊 Observabilidad
+- Logs de creación, actualización y cambios de estado
+- Registro en `storage/logs/laravel.log`
 
 ---
 
